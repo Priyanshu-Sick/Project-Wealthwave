@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WealthWave - Personal Finance Tracker</title>
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #1c2833, #34495e);
+            color: #fff;
+            padding: 3rem 1rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        header .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        header .logo img {
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin: 0.5rem 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+        }
+
+        .cta-button {
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            color: #fff;
+            background: #d4ac0d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #b7950b;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: #ecf0f1;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            color: #34495e;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #d4ac0d;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            background: #fdfefe;
+            perspective: 1000px; /* Enables 3D effect */
+        }
+
+        .feature {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .feature:hover {
+            transform: rotateY(180deg);
+        }
+
+        .feature-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-front {
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .feature-front img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-front h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 1rem 0;
+            color: #1c2833;
+        }
+
+        .feature-front p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .feature-back {
+            background: #1c2833;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            transform: rotateY(180deg);
+        }
+
+        .feature-back h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .feature-back p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 2rem;
+            text-align: center;
+            background: #d4ac0d;
+            color: #fff;
+        }
+
+        .testimonials h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial {
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .testimonial span {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #1c2833;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #d4ac0d;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="I1.png" alt="WealthWave Logo">
+            <h1>WealthWave</h1>
+        </div>
+        <p>Your pathway to smarter financial management</p>
+        <a href="signup.html" class="cta-button">Join Us Today</a>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="home.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <div class="feature-card feature-front">
+                <img src="track-expenses.png" alt="Track Expenses">
+                <h3>Track Your Expenses</h3>
+                <p>Easily record and monitor your expenses.</p>
+            </div>
+            <div class="feature-card feature-back">
+                <h3>Track Your Expenses</h3>
+                <p>Maintain a detailed log of your daily, weekly, and monthly expenditures, helping you understand spending habits and make informed decisions.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-card feature-front">
+                <img src="set-goals.png" alt="Set Goals">
+                <h3>Set Financial Goals</h3>
+                <p>Define your savings goals and track your progress.</p>
+            </div>
+            <div class="feature-card feature-back">
+                <h3>Set Financial Goals</h3>
+                <p>Plan for a brighter financial future by setting achievable goals, monitoring progress, and staying motivated to reach them.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-card feature-front">
+                <img src="budget-planning.png" alt="Budget Planning">
+                <h3>Budget Planning</h3>
+                <p>Create custom budgets for better finances.</p>
+            </div>
+            <div class="feature-card feature-back">
+                <h3>Budget Planning</h3>
+                <p>Craft personalized budgets tailored to your needs, allowing you to allocate resources wisely and achieve financial stability.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-card feature-front">
+                <img src="secure-data.png" alt="Secure Data">
+                <h3>Secure Data</h3>
+                <p>Your data is protected with encryption.</p>
+            </div>
+            <div class="feature-card feature-back">
+                <h3>Secure Data</h3>
+                <p>Rest assured knowing your financial information is safeguarded with cutting-edge encryption and stringent security protocols.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">
+            "WealthWave helped me save $500 in just three months. It's so easy to use!"  
+            <span>- Jessica R.</span>
+        </div>
+        <div class="testimonial">
+            "I never realized how much I was overspending until I started using this app."  
+            <span>- Mark T.</span>
+        </div>
+        <div class="testimonial">
+            "The budgeting tools are life-changing. Highly recommend WealthWave to everyone!"  
+            <span>- Priya S.</span>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 WealthWave. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

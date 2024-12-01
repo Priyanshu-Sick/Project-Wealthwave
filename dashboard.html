@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WealthWave Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #2c3e50;
+            color: #2c3e50;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .header .logo {
+            background: #d4ac0d;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: bold;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 10px;
+            color: #34495e;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #34495e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: #d4ac0d;
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #1c2833;
+            margin-bottom: 20px;
+        }
+
+        /* Balance Section */
+        .balance-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #1c2833, #34495e);
+            color: #fff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .balance-section .current-balance {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .balance-section .circle-chart {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(#d4ac0d 120deg, transparent 120deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .balance-section .circle-chart .value {
+            position: absolute;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Info Section */
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-box {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            background: #fdfefe;
+            border-radius: 8px;
+            margin: 0 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-box h3 {
+            margin-bottom: 10px;
+            color: #1c2833;
+        }
+
+        .info-box p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            margin-top: 40px;
+        }
+
+        .tools-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: #fdfefe;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-card h3 {
+            margin-bottom: 10px;
+            color: #1c2833;
+        }
+
+        .tool-card a {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .tool-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #1c2833;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #d4ac0d;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back to Homepage Button -->
+    <a href="homepage.html" class="back-button">← Back to Homepage</a>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">WW</div>
+        <h1>WealthWave</h1>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <h2>Welcome Back, User!</h2>
+        <div class="balance-section">
+            <div class="current-balance">Current Balance: $0</div>
+            <div class="circle-chart">
+                <div class="value">0%</div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <div class="info-box">
+                <h3>Total Emergency Funds</h3>
+                <p>$0</p>
+            </div>
+            <div class="info-box">
+                <h3>Current Savings</h3>
+                <p>$5,812</p>
+            </div>
+            <div class="info-box">
+                <h3>Monthly Growth</h3>
+                <p>$267</p>
+            </div>
+        </div>
+
+        <!-- Tools Section -->
+        <div class="tools-section">
+            <h2>Explore Our Financial Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Money Spend Tracker</h3>
+                    <a href="howitworks.html">Learn More →</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Emergency Fund Calculator</h3>
+                    <a href="EF_Calc.html">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 WealthWave. All Rights Reserved. Need Help? <a href="contact.html">Contact Us</a>
+    </footer>
+</body>
+
+</html>

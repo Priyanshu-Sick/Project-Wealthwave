@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WealthWave - Login</title>
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1c2833, #34495e); /* Blue gradient from homepage */
+            color: #2c3e50;
+        }
+
+        /* Login Container */
+        .login-container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Logo and Title */
+        .login-container .logo {
+            margin-bottom: 1rem;
+        }
+
+        .login-container .logo img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .login-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #1c2833;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Input Fields */
+        .login-container input {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #dfe6e9;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .login-container input:focus {
+            border-color: #d4ac0d;
+            outline: none;
+        }
+
+        /* Login Button */
+        .login-button {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 1rem 0;
+            border: none;
+            border-radius: 5px;
+            background: #d4ac0d;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .login-button:hover {
+            background: #b7950b;
+        }
+
+        /* Link */
+        .login-container a {
+            display: block;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #1c2833;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .login-container a:hover {
+            color: #d4ac0d;
+        }
+
+        /* Footer */
+        .login-footer {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="I1.png" alt="WealthWave Logo">
+        </div>
+
+        <!-- Title -->
+        <h1>Welcome Back!</h1>
+        <p>Log in to your WealthWave account</p>
+
+        <!-- Login Form -->
+        <form action="dashboard.html" method="POST">
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+
+        <!-- Links -->
+        <a href="forgot-password.html">Forgot your password?</a>
+        <a href="signup.html">Don't have an account? Sign up here!</a>
+
+        <!-- Footer -->
+        <div class="login-footer">
+            <p>© 2024 WealthWave. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

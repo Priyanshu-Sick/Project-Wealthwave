@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Fund Calculator</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #1c2833;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header .logo {
+            background: #d4ac0d;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #34495e;
+            margin-top: 10px;
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title and Subtitle */
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #1c2833;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            text-align: center;
+            margin: 10px 0;
+            color: #34495e;
+        }
+
+        .description {
+            text-align: center;
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Input Fields */
+        .input-group {
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 10px 10px 30px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+
+        .input-group .rupee-symbol {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border: 2px solid #d4ac0d;
+        }
+
+        /* Button */
+        #calculateBtn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #d4ac0d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #calculateBtn:hover {
+            background-color: #34495e;
+        }
+
+        /* Go Back Button */
+        #goBackBtn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #34495e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #goBackBtn:hover {
+            background-color: #1c2833;
+        }
+
+        /* Projection Section */
+        .projection-section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .projection-section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .projected-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .projected-output {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .tip-of-the-day {
+            text-align: center;
+            font-size: 16px;
+            font-style: italic;
+            background-color: #e8f7e8;
+            padding: 10px;
+            border-radius: 8px;
+            color: #006400;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #1c2833;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #d4ac0d;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .calculator-section, .projection-section {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="logo">WW</div>
+        <h1>WealthWave</h1>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="title">Emergency Fund Calculator</div>
+        <div class="subtitle">Plan for Your Financial Safety Net</div>
+        <div class="description">
+            Calculate how much you need to save monthly to reach your emergency fund goal in the specified time frame.
+        </div>
+
+        <!-- Input Fields -->
+        <div class="input-group">
+            <input id="goalAmount" type="number" placeholder="Goal Amount for Emergency Fund" />
+        </div>
+        <div class="input-group">
+            <input id="currentSavings" type="number" placeholder="Current Savings" />
+        </div>
+        <div class="input-group">
+            <input id="monthlySavings" type="number" placeholder="Monthly Savings" />
+        </div>
+        <div class="input-group">
+            <label for="timePeriodSlider">Time Period (Years):</label>
+            <input id="timePeriodSlider" type="range" min="1" max="20" step="1" value="5">
+            <span id="timePeriodValue">5 years</span>
+        </div>
+        <button id="calculateBtn" onclick="calculate()">Calculate</button>
+
+        <!-- Go Back Button -->
+        <button id="goBackBtn" onclick="window.location.href='dashboard.html'">Go Back to Dashboard</button>
+    </div>
+
+    <!-- Projected Results Section -->
+    <div class="container">
+        <div class="projection-section" id="projectionSection">
+            <div class="projected-title">Amount You Will Get for Your Emergency</div>
+            <div class="projected-output" id="projectedAmount">₹0</div>
+            <div class="projected-output" id="shortfallAmount">₹0</div>
+            <div class="projected-output" id="recommendedSavings">Wealthwave's Recommendation: ₹0</div>
+            <div class="tip-of-the-day">
+                Tip of the day: "Start saving early for emergencies and set a monthly budget!"
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 WealthWave. All Rights Reserved. Need Help? <a href="contact.html">Contact Us</a>
+    </footer>
+
+    <script>
+        // Update the displayed time period value dynamically as the slider moves
+        document.getElementById('timePeriodSlider').addEventListener('input', function () {
+            document.getElementById('timePeriodValue').textContent = this.value + ' years';
+        });
+
+        // Calculate and display projected savings
+        function calculate() {
+            var goalAmount = parseFloat(document.getElementById('goalAmount').value);
+            var currentSavings = parseFloat(document.getElementById('currentSavings').value);
+            var monthlySavings = parseFloat(document.getElementById('monthlySavings').value);
+            var timePeriod = parseInt(document.getElementById('timePeriodSlider').value);
+
+            // Calculate total projected savings over the time period
+            var totalSavings = currentSavings + (monthlySavings * 12 * timePeriod);
+
+            // Calculate shortfall or surplus
+            var shortfall = goalAmount - totalSavings;
+
+            // Calculate the recommended savings per month to reach the goal
+            var recommendedMonthlySavings = (goalAmount - currentSavings) / (12 * timePeriod);
+
+            // Display the results
+            document.getElementById('projectedAmount').textContent = '₹' + totalSavings.toFixed(2);
+            document.getElementById('shortfallAmount').textContent = shortfall > 0 ? 'You are short by ₹' + shortfall.toFixed(2) : 'You have surpassed your goal by ₹' + Math.abs(shortfall).toFixed(2);
+            document.getElementById('recommendedSavings').textContent = 'Wealthwave\'s Recommendation: ₹' + recommendedMonthlySavings.toFixed(2) + ' per month';
+
+            // Show the results section with an animation
+            document.getElementById('projectionSection').classList.add('show');
+        }
+    </script>
+</body>
+
+</html>

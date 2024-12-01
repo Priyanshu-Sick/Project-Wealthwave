@@ -1,0 +1,170 @@
+signup.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WealthWave - Sign Up</title>
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1c2833, #34495e); /* Blue gradient from homepage */
+            color: #2c3e50;
+        }
+
+        /* Sign-Up Container */
+        .signup-container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Logo and Title */
+        .signup-container .logo {
+            margin-bottom: 1rem;
+        }
+
+        .signup-container .logo img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .signup-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #1c2833;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Input Fields */
+        .signup-container input {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #dfe6e9;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .signup-container input:focus {
+            border-color: #d4ac0d;
+            outline: none;
+        }
+
+        /* Sign-Up Button */
+        .signup-button {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 1rem 0;
+            border: none;
+            border-radius: 5px;
+            background: #d4ac0d;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .signup-button:hover {
+            background: #b7950b;
+        }
+
+        /* Link */
+        .signup-container a {
+            display: block;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #1c2833;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .signup-container a:hover {
+            color: #d4ac0d;
+        }
+
+        /* Footer */
+        .signup-footer {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="I1.png" alt="WealthWave Logo">
+        </div>
+
+        <!-- Title -->
+        <h1>Create an Account</h1>
+        <p><bold>Sign up to start your journey with WealthWave!!</bold></p>
+
+        <!-- Sign-Up Form -->
+        <form id="signupForm" method="POST" action="/signup">
+            <div style="display: flex; justify-content: space-between;">
+                <input type="text" name="first_name" id="first_name" placeholder="First Name" required style="width: 48%;">
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name" required style="width: 48%;">
+            </div>
+            <input type="email" name="email" id="email" placeholder="Email Address" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <input type="text" name="phone" id="phone" placeholder="Phone Number" required>
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
+
+        <!-- Links -->
+        <a href="login.html">Already have an account? Log in here!</a>
+
+        <!-- Footer -->
+        <div class="signup-footer">
+            <p>© 2024 WealthWave. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    try {
+        const response = await fetch('/signup', { // This should match the POST route in your server
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+        if (response.status === 201) {
+            alert('User created successfully!');
+            window.location.href = 'login.html'; // Redirect to login page
+        } else {
+            alert(result.message); // Show error message
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again later.');
+    }
+});
+    </script>
+</body>
+</html>
